@@ -286,6 +286,11 @@ class MultiAgentEnv(gym.Env):
                     dx.append(np.array([x,y]))
         return dx
 
+    def close(self):
+        for viewer in self.viewers:
+            if viewer:
+                viewer.close()
+
 
 # vectorized wrapper for a batch of multi-agent environments
 # assumes all environments have the same observation and action space
