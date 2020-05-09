@@ -260,6 +260,10 @@ class MultiAgentEnv(gym.Env):
             # render to display or array
             results.append(self.viewers[i].render(return_rgb_array = mode=='rgb_array'))
 
+        if self.shared_viewer:
+            assert len(results) == 1
+            return results[0]
+
         return results
 
     # create receptor field locations in local coordinate frame
