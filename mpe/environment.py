@@ -82,6 +82,14 @@ class MultiAgentEnv(gym.Env):
         self._reset_render()
 
     def step(self, action_n):
+
+        one_hot_actions = []
+        for act, acsp in zip(action_n, self.action_space):
+            one_hot = np.zeros(acsp.n)
+            one_hot[act] = 1.0
+            one_hot_actions.append(one_hot)
+        action_n = one_hot_actions
+
         obs_n = []
         reward_n = []
         done_n = []
