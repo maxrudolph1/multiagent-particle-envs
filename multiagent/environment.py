@@ -69,6 +69,10 @@ class MultiAgentEnv(gym.Env):
             self.observation_space.append(spaces.Box(low=-np.inf, high=+np.inf, shape=(obs_dim,), dtype=np.float32))
             agent.action.c = np.zeros(self.world.dim_c)
 
+        self.action_space = spaces.Tuple(tuple(self.action_space))
+        self.observation_space = spaces.Tuple(tuple(self.observation_space))
+        self.n_agents = self.n
+
         # rendering
         self.shared_viewer = shared_viewer
         if self.shared_viewer:
