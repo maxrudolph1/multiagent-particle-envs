@@ -3,9 +3,9 @@ import os,sys
 sys.path.insert(1, os.path.join(sys.path[0], '..'))
 import argparse
 
-from multiagent.environment import MultiAgentEnv
-from multiagent.policy import InteractivePolicy
-import multiagent.scenarios as scenarios
+from mpe.environment import MultiAgentEnv
+from mpe.policy import InteractivePolicy
+import mpe.scenarios as scenarios
 
 if __name__ == '__main__':
     # parse arguments

@@ -22,7 +22,7 @@ for scenario_name, gymkey in _particles.items():
     # Registers multi-agent particle environments:
     register(
         gymkey,
-        entry_point="mpe.environment:MultiAgentEnv",
+        entry_point="multiagent.environment:MultiAgentEnv",
         kwargs={
             "world": world,
             "reset_callback": scenario.reset_world,

@@ -18,17 +18,17 @@ Used in the paper [Multi-Agent Actor-Critic for Mixed Cooperative-Competitive En
 
 - `make_env.py`: contains code for importing a multiagent environment as an OpenAI Gym-like object.
 
-- `./multiagent/environment.py`: contains code for environment simulation (interaction physics, `_step()` function, etc.)
+- `./mpe/environment.py`: contains code for environment simulation (interaction physics, `_step()` function, etc.)
 
-- `./multiagent/core.py`: contains classes for various objects (Entities, Landmarks, Agents, etc.) that are used throughout the code.
+- `./mpe/core.py`: contains classes for various objects (Entities, Landmarks, Agents, etc.) that are used throughout the code.
 
-- `./multiagent/rendering.py`: used for displaying agent behaviors on the screen.
+- `./mpe/rendering.py`: used for displaying agent behaviors on the screen.
 
-- `./multiagent/policy.py`: contains code for interactive policy based on keyboard input.
+- `./mpe/policy.py`: contains code for interactive policy based on keyboard input.
 
-- `./multiagent/scenario.py`: contains base scenario object that is extended for all scenarios.
+- `./mpe/scenario.py`: contains base scenario object that is extended for all scenarios.
 
-- `./multiagent/scenarios/`: folder where various scenarios/ environments are stored. scenario code consists of several functions:
+- `./mpe/scenarios/`: folder where various scenarios/ environments are stored. scenario code consists of several functions:
     1) `make_world()`: creates all of the entities that inhabit the world (landmarks, agents, etc.), assigns their capabilities (whether they can communicate, or move, or both).
      called once at the beginning of each training session
     2) `reset_world()`: resets the world by assigning properties (position, color, etc.) to all entities in the world
