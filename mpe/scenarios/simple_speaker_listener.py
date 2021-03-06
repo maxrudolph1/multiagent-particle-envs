@@ -37,7 +37,9 @@ class Scenario(BaseScenario):
             agent.goal_b = None
         # want listener to go to the goal landmark
         world.agents[0].goal_a = world.agents[1]
-        world.agents[0].goal_b = np.random.choice(world.landmarks)
+        world.agents[0].goal_b = world.np_random.choice(world.landmarks)
+
+
         # random properties for agents
         for i, agent in enumerate(world.agents):
             agent.color = np.array([0.25,0.25,0.25])               
@@ -49,11 +51,11 @@ class Scenario(BaseScenario):
         world.agents[0].goal_a.color = world.agents[0].goal_b.color + np.array([0.45, 0.45, 0.45])
         # set random initial states
         for agent in world.agents:
-            agent.state.p_pos = np.random.uniform(-1,+1, world.dim_p)
+            agent.state.p_pos = world.np_random.uniform(-1,+1, world.dim_p)
             agent.state.p_vel = np.zeros(world.dim_p)
             agent.state.c = np.zeros(world.dim_c)
         for i, landmark in enumerate(world.landmarks):
-            landmark.state.p_pos = np.random.uniform(-1,+1, world.dim_p)
+            landmark.state.p_pos = world.np_random.uniform(-1,+1, world.dim_p)
             landmark.state.p_vel = np.zeros(world.dim_p)
 
     def benchmark_data(self, agent, world):

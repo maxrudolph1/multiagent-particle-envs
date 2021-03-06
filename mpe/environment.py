@@ -3,6 +3,7 @@ from gym import spaces
 from gym.envs.registration import EnvSpec
 import numpy as np
 from mpe.multi_discrete import MultiDiscrete
+import copy
 
 # environment for all agents in the multiagent world
 # currently code assumes that no agents will be created/destroyed at runtime!
@@ -15,6 +16,7 @@ class MultiAgentEnv(gym.Env):
                  observation_callback=None, info_callback=None,
                  done_callback=None, shared_viewer=True):
 
+        world = copy.deepcopy(world)
         self.world = world
         self.agents = self.world.policy_agents
         # set required vectorized gym env property
@@ -81,6 +83,9 @@ class MultiAgentEnv(gym.Env):
             self.viewers = [None] * self.n
         self._reset_render()
 
+    def seed(self, seed):
+        self.world.seed(seed)
+
     def step(self, action_n):
 
         one_hot_actions = []
@@ -137,7 +142,7 @@ class MultiAgentEnv(gym.Env):
     def _get_obs(self, agent):
         if self.observation_callback is None:
             return np.zeros(0)
-        return self.observation_callback(agent, self.world)
+        return self.observation_callback(agent, self.world).astype(np.float32)
 
     # get dones for a particular agent
     # unused right now -- agents are allowed to go beyond the viewing screen
