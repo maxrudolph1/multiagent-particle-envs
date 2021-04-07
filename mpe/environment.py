@@ -118,7 +118,7 @@ class MultiAgentEnv(gym.Env):
         if self.shared_reward:
             reward_n = [reward] * self.n
 
-        return obs_n, reward_n, done_n, info_n
+        return tuple(obs_n), reward_n, done_n, info_n
 
     def reset(self):
         # reset world
@@ -130,7 +130,7 @@ class MultiAgentEnv(gym.Env):
         self.agents = self.world.policy_agents
         for agent in self.agents:
             obs_n.append(self._get_obs(agent))
-        return obs_n
+        return tuple(obs_n)
 
     # get info used for benchmarking
     def _get_info(self, agent):
