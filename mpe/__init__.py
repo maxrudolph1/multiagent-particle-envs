@@ -13,7 +13,8 @@ _particles = {
     "simple_spread": "SimpleSpread-v0",
     "simple_tag": "SimpleTag-v0",
     "simple_world_comm": "SimpleWorldComm-v0",
-    "climbing_spread": "ClimbingSpread-v0"
+    "climbing_spread": "ClimbingSpread-v0",
+    "simple_doublespread": "DoubleSpread-v0", 
 }
 
 for scenario_name, gymkey in _particles.items():
