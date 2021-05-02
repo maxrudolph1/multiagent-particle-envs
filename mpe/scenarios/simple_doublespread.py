@@ -3,11 +3,11 @@ from mpe.core import World, Agent, Landmark
 from mpe.scenario import BaseScenario
 
 class Scenario(BaseScenario):
-    def make_world(self):
+    def make_world(self, N):
         world = World()
         # set any world properties first
         world.dim_c = 2
-        num_agents = 5
+        num_agents = N
         num_landmarks = 2
         world.collaborative = True
 
