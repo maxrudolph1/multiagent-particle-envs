@@ -4,11 +4,11 @@ from mpe.scenario import BaseScenario
 
 
 class Scenario(BaseScenario):
-    def make_world(self):
+    def make_world(self, **kwargs):
         world = World()
         # set any world properties first
         world.dim_c = 2
-        num_agents = 3
+        num_agents = 3 if 'num_agents' not in kwargs else kwargs['num_agents']
         num_landmarks = 3
         world.collaborative = True
         # add agents
